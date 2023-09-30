@@ -1,0 +1,16 @@
+USE seminario2_201905554;
+SELECT 'cliente' AS Tabla, COUNT(*) AS Count FROM cliente
+UNION ALL
+SELECT 'fecha' AS Tabla, COUNT(*) AS Count FROM fecha
+UNION ALL
+SELECT 'producto' AS Tabla, COUNT(*) AS Count FROM producto
+UNION ALL
+SELECT 'proveedor' AS Tabla, COUNT(*) AS Count FROM proveedor
+UNION ALL
+SELECT 'sucursal' AS Tabla, COUNT(*) AS Count FROM sucursal
+UNION ALL
+SELECT 'compra' AS Tabla, COUNT(*) AS Count FROM compra
+UNION ALL
+SELECT 'vendedor' AS Tabla, COUNT(*) AS Count FROM vendedor
+UNION ALL
+SELECT 'venta' AS Tabla, COUNT(*) AS Count FROM venta;

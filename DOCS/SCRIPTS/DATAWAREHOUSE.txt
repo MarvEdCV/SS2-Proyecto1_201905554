@@ -1,0 +1,120 @@
+create table cliente
+(
+    id_cliente int identity
+        constraint cliente_pk
+            primary key,
+    codigo     varchar(10),
+    nombre     varchar(250),
+    direccion  varchar(500),
+    numero     varchar(15),
+    tipo       varchar(150)
+)
+go
+
+create table fecha
+(
+    id_fecha int identity
+        constraint fecha_pk
+            primary key,
+    fecha    datetime
+)
+go
+
+create table producto
+(
+    id_producto int identity
+        constraint producto_pk
+            primary key,
+    codigo      varchar(10),
+    nombre      varchar(250),
+    categoria   varchar(150),
+    marca       varchar(150)
+)
+go
+
+create table proveedor
+(
+    id_proveedor int identity
+        constraint proveedor_pk
+            primary key,
+    codigo       varchar(10),
+    nombre       varchar(150),
+    direccion    varchar(500),
+    numero       varchar(15),
+    web          varchar(150)
+)
+go
+
+create table sucursal
+(
+    id_sucursal  int identity
+        constraint sucursal_pk
+            primary key,
+    codigo       varchar(10),
+    nombre       varchar(250),
+    direccion    varchar(500),
+    departamento varchar(150),
+    region       varchar(150)
+)
+go
+
+create table compra
+(
+    id_compra       int identity
+        constraint compra_pk
+            primary key,
+    id_sucursal     int
+        constraint compra_sucursal_null_fk
+            references sucursal,
+    id_proveedor    int
+        constraint compra_proveedor_null_fk
+            references proveedor,
+    id_producto     int
+        constraint compra_producto_null_fk
+            references producto,
+    id_fecha        int
+        constraint compra_fecha_null_fk
+            references fecha,
+    unidades        int,
+    precio_unitario decimal(10, 2),
+    total           decimal(15, 2)
+)
+go
+
+create table vendedor
+(
+    id_vendedor  int identity
+        constraint vendedor_pk
+            primary key,
+    codigo       varchar(10),
+    nombre       varchar(250),
+    vacacionista varchar(3)
+)
+go
+
+create table venta
+(
+    id_sucursal     int
+        constraint venta_sucursal_null_fk
+            references sucursal,
+    id_cliente      int
+        constraint venta_cliente_null_fk
+            references cliente,
+    id_producto     int
+        constraint venta_producto_null_fk
+            references producto,
+    id_fecha        int
+        constraint venta_fecha_null_fk
+            references fecha,
+    unidades        int,
+    precio_unitario decimal(10, 2),
+    id_vendedor     int
+        constraint venta_vendedor_null_fk
+            references vendedor,
+    id_venta        int identity
+        constraint venta_pk
+            primary key,
+    total           decimal(20, 2)
+)
+go
+

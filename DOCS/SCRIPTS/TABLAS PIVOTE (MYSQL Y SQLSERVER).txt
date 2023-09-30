@@ -1,0 +1,48 @@
+USE pivote;
+create table comp
+(
+    fecha                 varchar(50),
+    codigo_proveedor      varchar(10),
+    nombre_proveedor      varchar(150),
+    direccion_proveedor   varchar(500),
+    numero_proveedor      varchar(25),
+    web_proveedor         varchar(150),
+    codigo_producto       varchar(10),
+    nombre_producto       varchar(250),
+    marca_producto        varchar(150),
+    categoria_producto    varchar(150),
+    codigo_sucursal       varchar(10),
+    nombre_sucursal       varchar(250),
+    direccion_sucursal    varchar(500),
+    region_sucursal       varchar(150),
+    departamento_sucursal varchar(150),
+    unidades              varchar(10),
+    costo_unitario        varchar(10)
+)
+go
+
+create table vent
+(
+    fecha                 varchar(25),
+    codigo_cliente        varchar(10),
+    nombre_cliente        varchar(150),
+    tipo_cliente          varchar(150),
+    direccion_cliente     varchar(500),
+    numero_cliente        varchar(25),
+    codigo_vendedor       varchar(10),
+    nombre_vendedor       varchar(250),
+    vacacionista          varchar(5),
+    codigo_producto       varchar(10),
+    nombre_producto       varchar(250),
+    marca_producto        varchar(150),
+    categoria_producto    varchar(150),
+    codigo_sucursal       varchar(10),
+    nombre_sucursal       varchar(250),
+    direccion_sucursal    varchar(500),
+    region_sucursal       varchar(150),
+    departamento_sucursal varchar(150),
+    unidades              varchar(15),
+    costo_unitario        varchar(15)
+)
+go
+
